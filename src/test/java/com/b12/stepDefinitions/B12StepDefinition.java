@@ -29,18 +29,19 @@ public class B12StepDefinition {
     @Given("user accepts content type {string}")
     public void user_accepts_content_type(String type) {
 
-        request = given().contentType(type);
+        request = given().
+                    contentType(type);
     }
-
     @When("user sends GET request to {string}")
     public void user_sends_GET_request_to(String endPoint) {
         response = request.
                     when().
                         get(endPoint).prettyPeek();
     }
-
     @Then("user verifies that status code is {int}")
     public void user_verifies_that_status_code_is(int statusCode) {
-        response.then().statusCode(statusCode);
+        response.
+                then().
+                    statusCode(statusCode);
     }
 }
